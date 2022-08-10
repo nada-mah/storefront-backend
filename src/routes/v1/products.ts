@@ -29,7 +29,7 @@ productsroute.get(
   async (req: Request, res: Response): Promise<void> => {
     try {
       const id: number = parseInt(req.params.id)
-      const product: Products[] = await Store.show(id)
+      const product: Products = await Store.show(id)
       res.json(product)
     } catch (err) {
       res.status(400)

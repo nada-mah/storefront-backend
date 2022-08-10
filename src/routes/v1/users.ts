@@ -25,7 +25,7 @@ firstroute.get(
   async (req: Request, res: Response): Promise<void> => {
     try {
       const id: number = parseInt(req.params.id)
-      const users: User[] = await Store.show(id)
+      const users: User = await Store.show(id)
       res.json(users)
     } catch (err) {
       res.status(400)
@@ -37,8 +37,8 @@ firstroute.post('/', async (req: Request, res: Response): Promise<void> => {
   try {
     const newuser: User = {
       email: req.body.email as string,
-      firstName: req.body.firstname,
-      lastName: req.body.lastname,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
       password: req.body.password
     }
     const tokenSecret = process.env.TOKEN_SECRET
@@ -47,8 +47,8 @@ firstroute.post('/', async (req: Request, res: Response): Promise<void> => {
       {
         user: {
           email: users.email,
-          firstName: users.firstName,
-          lastName: users.lastName
+          firstName: users.firstname,
+          lastName: users.lastname
         }
       },
       tokenSecret as string

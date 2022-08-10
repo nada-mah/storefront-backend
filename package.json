@@ -1,9 +1,9 @@
 {
-  "name": "api",
+  "name": "storefrontbackend",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && npm run jasmine",
+    "test": "npm run build && npm run testdb-up && npm run jasmine && npm run testdb-reset && npm run clean",
     "clean": "rimraf build/",
     "build": "tsc",
     "jasmine": "jasmine",
@@ -11,7 +11,7 @@
     "format": "prettier --config .prettierrc {,!(node_modules)/**/}*.ts --write ",
     "lint": "eslint . --ext .ts",
     "testdb-reset": "db-migrate reset --config ./database.json --e test",
-    "testdb-up": "db-migrate --config ./database.json --e test up",
+    "testdb-up": " db-migrate --config ./database.json --e test up",
     "devdb-up": "db-migrate up --config ./database.json --e dev",
     "devdb-reset": "db-migrate reset --config ./database.json --e dev"
   },
@@ -53,7 +53,6 @@
     "db-migrate-pg": "^1.2.2",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^8.7.3",
-    "sharp": "^0.30.7"
+    "pg": "^8.7.3"
   }
 }

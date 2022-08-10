@@ -6,9 +6,9 @@ dotenv.config()
 export type User = {
   id?: number
   email: string
-  firstName: string
-  lastName: string
-  password: number
+  firstname: string
+  lastname: string
+  password: string
 }
 
 const pepper = process.env.BCRYPT_PASSWORD
@@ -27,7 +27,7 @@ export class UserStore {
       throw new Error(`Could not get users. Error: ${(err as Error).message}`)
     }
   }
-  async show(id: number): Promise<User[]> {
+  async show(id: number): Promise<User> {
     try {
       const sql = 'SELECT * FROM users WHERE id=($1)'
       const conn = await Client.connect()
@@ -53,8 +53,8 @@ export class UserStore {
       )
       const result = await conn.query(sql, [
         usr.email,
-        usr.firstName,
-        usr.lastName,
+        usr.firstname,
+        usr.lastname,
         hash
       ])
 
@@ -75,13 +75,9 @@ export class UserStore {
 
     const result = await conn.query(sql, [email])
 
-    console.log(password + pepper)
-
     conn.release()
     if (result.rows.length) {
       const user = result.rows[0]
-
-      console.log(user)
 
       if (bcrypt.compareSync(password + pepper, user.password)) {
         return user
