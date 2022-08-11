@@ -58,5 +58,5 @@ npm run lint
 ```
 ## contact
 
-[GIT](https://github.com/nada-mah/Image-api.git)
+[GIT](https://github.com/nada-mah/storefront-backend)
 [Nada Mahmoud](cutenada.lara4@gmail.com)
