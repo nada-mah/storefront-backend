@@ -11,7 +11,7 @@ const newuser: User = {
   password: '212'
 }
 app.use(express.json())
-describe('UUSERS', () => {
+describe('testing users endpoint', () => {
   it('test unautherized users endpoint', async () => {
     const response = await request.get('/users')
     expect(response.status).toBe(401)

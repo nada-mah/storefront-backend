@@ -9,8 +9,8 @@ const neworder: Order = {
   completed: false
 }
 app.use(express.json())
-describe('testing products endpoint', () => {
-  it('test get products endpoint', async () => {
+describe('testing orders endpoint', () => {
+  it('test get endpoint', async () => {
     const response = await request
       .get('/orders')
       .set(
