@@ -46,29 +46,29 @@ post product to order (req token):
 
 ## Database Schema
 #### Product
-`
+```bash
 -   id SERIAL PRIMARY KEY,
 -   productName VARCHAR NOT NULL,
 -   price INTEGER NOT NULL
-`
+```
 #### User
-`
+```bash
 -  id serial primary key,
 -   firstname varchar ,
 -   lastname varchar ,
 -   email VARCHAR Not NULL UNIQUE,
 -   password VARCHAR(255) NOT NULL
-`
+```
 #### Orders
-`
+```bash
 -   id SERIAL primary key,
 -   user_id INTEGER REFERENCES users(id) NOT NULL,
  -  completed BOOLEAN Not NULL DEFAULT false
-`
+```
 #### order_products
-`
+```bash
 -   id SERIAL 
 -   product_id INTEGER REFERENCES products(id) NOT NULL,
 -   order_id INTEGER REFERENCES orders(id) NOT NULL,
 -   quantity INTEGER NOT NULL
-`
+```
