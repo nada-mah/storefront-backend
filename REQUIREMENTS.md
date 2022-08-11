@@ -44,26 +44,31 @@ post product to order (req token):
 - Current Order by user (args: user id)[token required]
 - [OPTIONAL] Completed Orders by user (args: user id)[token required]
 
-## Data Shapes
+## Database Schema
 #### Product
--  id
-- name
-- price
-
+`
+-   id SERIAL PRIMARY KEY,
+-   productName VARCHAR NOT NULL,
+-   price INTEGER NOT NULL
+`
 #### User
-- id
-- email
-- firstName
-- lastName
-- password
-
+`
+-  id serial primary key,
+-   firstname varchar ,
+-   lastname varchar ,
+-   email VARCHAR Not NULL UNIQUE,
+-   password VARCHAR(255) NOT NULL
+`
 #### Orders
-- id
-- user_id
-- completed (true or false)
-
+`
+-   id SERIAL primary key,
+-   user_id INTEGER REFERENCES users(id) NOT NULL,
+ -  completed BOOLEAN Not NULL DEFAULT false
+`
 #### order_products
-- id
-- product_id
-- order_id
-- quantity of each product in the order
+`
+-   id SERIAL 
+-   product_id INTEGER REFERENCES products(id) NOT NULL,
+-   order_id INTEGER REFERENCES orders(id) NOT NULL,
+-   quantity INTEGER NOT NULL
+`
