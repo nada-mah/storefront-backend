@@ -31,5 +31,5 @@ if (NODE_ENV == 'dev') {
     password: POSTGRES_PASSWORD
   })
 }
-
+console.log(`Starting ${NODE_ENV} database.`)
 export default client

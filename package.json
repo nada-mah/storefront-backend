@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && npm run testdb-up && npm run jasmine && npm run testdb-reset && npm run clean",
+    "test": "npm run build && set NODE_ENV=test&& npm run testdb-up && npm run jasmine && npm run testdb-reset && npm run clean",
     "clean": "rimraf build/",
     "build": "tsc",
     "jasmine": "jasmine",
