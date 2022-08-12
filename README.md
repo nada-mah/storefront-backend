@@ -3,9 +3,14 @@ Build a JavaScript API based on a requirements given by the stakeholders. You wi
 
 ## setup 
 To get started, clone this repo and run `npm i` in your terminal at the project root.
-    run `createdb storebk_dev` for dev database
-    run `createdb storebk_test` for test database
-
+you have to create two database
+    run `createdb storebk_dev` for  POSTGRES_DB
+    run `createdb storebk_test` for POSTGRES_TEST_DB
+The SQL needed when connected to psql `CREATE USER username123 WITH PASSWORD 'password123';`
+`\c storebk_dev GRANT ALL PRIVILEGES ON DATABASE storebk_dev TO username123;`
+` \c storebk_test GRANT ALL PRIVILEGES ON DATABASE storebk_test TO username123;`
+## Local host ports
+the database, port will run on the selected port for postgres installation (default is 5432) server is running on port 3000
 ## Scripts
 testing
 
